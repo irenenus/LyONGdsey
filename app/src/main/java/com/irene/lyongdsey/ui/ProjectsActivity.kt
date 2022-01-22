@@ -1,7 +1,9 @@
 package com.irene.lyongdsey.ui
 
+import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.DatePicker
 import com.irene.lyongdsey.R
 import com.irene.lyongdsey.persistance.database.entity.ProjectEntity
 import com.irene.lyongdsey.repository.ProjectRepository
@@ -16,9 +18,10 @@ import kotlinx.android.synthetic.main.activity_projects.submitButton
 import kotlinx.android.synthetic.main.activity_projects.webEditText
 import kotlinx.android.synthetic.main.activity_projects.webInputLayout
 import kotlinx.android.synthetic.main.activity_stakeholder.*
+import java.text.SimpleDateFormat
 import java.util.*
 
-class ProjectsActivity : AppCompatActivity() {
+class ProjectsActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +40,7 @@ class ProjectsActivity : AppCompatActivity() {
             // check that there's no error
             if (allTheTextFieldsAreValid()) {
                 // add the project to database
+
                 Thread {
                     // insert the project to the DB
                     ProjectRepository(application).addProject(
@@ -46,7 +50,7 @@ class ProjectsActivity : AppCompatActivity() {
                             budget = amountEditText.text.toString().toFloat(),
                             image = imageWebEditText.text.toString(),
                             website = webEditText.text.toString(),
-                            completed = true
+                            completed = isProjectCompleted()
                         )
                     )
                 }.start()
@@ -95,6 +99,25 @@ class ProjectsActivity : AppCompatActivity() {
             }
         }
 
+        dateEditText.setOnFocusChangeListener { _, focus ->
+            if (focus) {
+                val dialog = DatePickerDialog(
+                    this,
+                    this,
+                    Calendar.getInstance().get(Calendar.YEAR),
+                    Calendar.getInstance().get(Calendar.MONTH),
+                    Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
+                )
+                dialog.show()
+            }
+        }
+
+        dateEditText.setOnClickListener {
+            val dialog = DatePickerDialog(this, this, Calendar.getInstance().get(Calendar.YEAR)
+                , Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.DAY_OF_MONTH))
+            dialog.show()
+        }
+
         amountEditText.setOnFocusChangeListener { _, focus ->
             // check if it has lost the focus and the text is not empty
             if (!focus && amountEditText.text.isNullOrEmpty()) {
@@ -105,11 +128,25 @@ class ProjectsActivity : AppCompatActivity() {
         }
     }
 
+    private fun isProjectCompleted() : Boolean {
+        val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        val strDate: Date? = sdf.parse(dateEditText.text.toString())
+
+        return strDate?.before(Date()) == true
+    }
+
     private fun allTheTextFieldsAreValid(): Boolean {
         return fullNameEditText.text.toString().isNotEmpty() && descriptionEditText.text.toString()
             .isNotEmpty()
                 && webEditText.text.toString().isValidURL() && amountEditText.text.toString()
             .isNotEmpty()
                 && imageWebEditText.text.toString().isValidURL()
+    }
+
+    override fun onDateSet(p0: DatePicker?, p1: Int, p2: Int, p3: Int) {
+        // set text of the date picker in the edit text
+        dateEditText.setText("${p0?.dayOfMonth}/${(p0?.month?.plus(1))}/${p0?.year}")
+        // Move cursor of edit text
+        dateEditText.setSelection(dateEditText.text.toString().length)
     }
 }

@@ -24,6 +24,7 @@
     <string name="projects_description">Description</string>
     <string name="projects_image_website">Image URL</string>
     <string name="projects_amount">Budget</string>
+    <string name="projects_complete_date">Closing date</string>
     <string name="projects_submit">Submit</string>
 
     <!-- Dashboard strings -->
