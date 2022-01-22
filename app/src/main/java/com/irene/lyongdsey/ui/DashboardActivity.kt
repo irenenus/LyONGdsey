@@ -19,37 +19,38 @@ class DashboardActivity : AppCompatActivity() {
     private var totalMoney: Float = 0f
     private var averageFundsPerProject: Float = 0f
 
+    private var stakeholderRepository : StakeholderRepository? = null
+    private var projectRepository : ProjectRepository? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
 
-        setUpProjectView()
-        setUpStakeholderView()
-        onListeners()
-    }
+        stakeholderRepository = StakeholderRepository(application)
+        projectRepository = ProjectRepository(application)
 
-    override fun onResume() {
-        super.onResume()
         getProjects()
         getStakeholders()
+        onListeners()
     }
 
     private fun getProjects() {
         MainScope().launch {
             withContext(Dispatchers.Default) {
                 // get projects from DB
-                ProjectRepository(application).getAllProjects()?.also { projects ->
+                projectRepository?.getAllProjects()?.also { projects ->
                     totalFundedProjects = projects.size
                     // get total funds
                     var totalFunds = 0.0
-                    projects.forEach {
-                        if (it.completed) {
-                            totalFunds += it.budget
-                        }
+                    val totalProjectsCompleted = projects.filter {
+                        it.completed
                     }
-                    if (projects.isNotEmpty()) {
+                    totalProjectsCompleted.forEach {
+                        totalFunds += it.budget
+                    }
+                    if (totalProjectsCompleted.isNotEmpty()) {
                         // calculate the average of the funds
-                        val averageFunds = totalFunds / projects.size
+                        val averageFunds = totalFunds / totalProjectsCompleted.size
                         averageFundsPerProject = averageFunds.toFloat()
                     }
                 }
@@ -61,7 +62,7 @@ class DashboardActivity : AppCompatActivity() {
     private fun getStakeholders(){
         MainScope().launch {
             withContext(Dispatchers.Default) {
-                StakeholderRepository(application).getAllStakeholders()?.also { stakeholders ->
+                stakeholderRepository?.getAllStakeholders()?.also { stakeholders ->
                     totalMoney = 0F
                     stakeholders.forEach {
                         totalMoney += it.amount

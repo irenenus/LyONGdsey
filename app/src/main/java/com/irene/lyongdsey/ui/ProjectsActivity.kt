@@ -1,6 +1,7 @@
 package com.irene.lyongdsey.ui
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.DatePicker
@@ -23,9 +24,13 @@ import java.util.*
 
 class ProjectsActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
 
+    private var projectRepository : ProjectRepository? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_projects)
+
+        projectRepository = ProjectRepository(application)
 
         onListeners()
     }
@@ -43,7 +48,7 @@ class ProjectsActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener
 
                 Thread {
                     // insert the project to the DB
-                    ProjectRepository(application).addProject(
+                    projectRepository?.addProject(
                         ProjectEntity(
                             UUID.randomUUID(),
                             name = fullNameEditText.text.toString(),
@@ -54,7 +59,9 @@ class ProjectsActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener
                         )
                     )
                 }.start()
-                finish()
+
+                finishAffinity()
+                startActivity(Intent(this, DashboardActivity::class.java))
             } else {
                 // go to the error text to indicate the user that something is not right
                 amountInputLayout.requestFocus()

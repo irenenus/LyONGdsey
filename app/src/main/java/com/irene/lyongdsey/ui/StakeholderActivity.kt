@@ -1,5 +1,6 @@
 package com.irene.lyongdsey.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -14,10 +15,13 @@ import java.util.*
 
 class StakeholderActivity : AppCompatActivity() {
     private var projectsList : MutableList<String> = mutableListOf()
+    private var stakeholderRepository : StakeholderRepository? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_stakeholder)
+
+        stakeholderRepository = StakeholderRepository(application)
 
         onListeners()
     }
@@ -42,7 +46,9 @@ class StakeholderActivity : AppCompatActivity() {
                         ))
                     }.start()
 
-                finish()
+                finishAffinity()
+                startActivity(Intent(this, DashboardActivity::class.java))
+
             }
             else {
                 // go to the error text to indicate the user that something is not right
