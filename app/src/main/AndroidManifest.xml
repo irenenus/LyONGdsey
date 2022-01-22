@@ -22,6 +22,9 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.LyONGdsey"/>
 
+        <activity android:name="com.irene.lyongdsey.ui.ProjectsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.LyONGdsey"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

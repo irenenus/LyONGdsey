@@ -21,7 +21,7 @@ class DashboardActivity : AppCompatActivity() {
         }
 
         addProjectButton.setOnClickListener {
-            startActivity(Intent(this, StakeholderActivity::class.java))
+            startActivity(Intent(this, ProjectsActivity::class.java))
         }
     }
 }

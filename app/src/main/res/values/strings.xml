@@ -2,6 +2,8 @@
     <string name="app_name">LyONGdsey</string>
     <string name="button_stakeholders">Add \n Stakeholder</string>
     <string name="button_add_project">Add \n project</string>
+
+    <!-- Stakeholders strings -->
     <string name="stakeholder_title">Stakeholder form</string>
     <string name="stakeholder_subtitle">Please, add all the fields</string>
     <string name="stakeholder_full_name">Full name</string>
@@ -11,6 +13,17 @@
     <string name="stakeholder_projects">Projects funded</string>
     <string name="stakeholder_amount">Amount</string>
     <string name="stakeholder_submit">Submit</string>
+
+
+    <!-- Projects strings -->
+    <string name="projects_title">Project form</string>
+    <string name="projects_subtitle">Please, add all the fields</string>
+    <string name="projects_full_name">Name</string>
+    <string name="projects_website">Website</string>
+    <string name="projects_description">Description</string>
+    <string name="projects_image_website">Image URL</string>
+    <string name="projects_amount">Budget</string>
+    <string name="projects_submit">Submit</string>
 
     <!-- Error strings -->
     <string name="stakeholder_field_required">Please fill this field as it´s required</string>
