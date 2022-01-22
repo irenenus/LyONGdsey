@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">LyONGdsey</string>
+    <string name="app_statement">Be your own ONG!</string>
     <string name="button_stakeholders">Add \n Stakeholder</string>
     <string name="button_add_project">Add \n project</string>
 
@@ -24,6 +25,12 @@
     <string name="projects_image_website">Image URL</string>
     <string name="projects_amount">Budget</string>
     <string name="projects_submit">Submit</string>
+
+    <!-- Dashboard strings -->
+    <string name="dashboard_projects_funded">Number of funded projects:</string>
+    <string name="dashboard_stakeholders">Number of stakeholders:</string>
+    <string name="dashboard_money_raised">Total money raised:</string>
+    <string name="dashboard_funds_per_projects">Average funds per project closed:</string>
 
     <!-- Error strings -->
     <string name="stakeholder_field_required">Please fill this field as it´s required</string>
