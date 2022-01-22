@@ -55,4 +55,5 @@ dependencies {
     // optional - Test helpers
     testImplementation "androidx.room:room-testing:$room_version"
 
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.1"
 }

@@ -44,6 +44,8 @@ class ProjectsActivity : AppCompatActivity() {
                             UUID.randomUUID(),
                             name = fullNameEditText.text.toString(),
                             budget = amountEditText.text.toString().toFloat(),
+                            image = imageWebEditText.text.toString(),
+                            website = webEditText.text.toString(),
                             completed = true
                         )
                     )

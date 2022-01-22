@@ -13,6 +13,7 @@ import com.irene.lyongdsey.persistance.database.entity.StakeholderEntity
 const val dbName = "ong_db"
 
 @Database(entities = [ProjectEntity::class, StakeholderEntity::class], version = 2, exportSchema = false)
+@TypeConverters(Converters::class)
 abstract class ONGDataBase : RoomDatabase() {
 
 

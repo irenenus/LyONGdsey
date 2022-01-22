@@ -32,10 +32,12 @@ class StakeholderActivity : AppCompatActivity() {
             if (allTheTextFieldsAreValid()) {
                 // set the stakeholder to the DB
                     Thread {
-                        // insert the stakeholder in to the DB
+                        // insert the stakeholder in to the DB, don't store the email because is sensible data
                         StakeholderRepository(application).addStakeholder(StakeholderEntity(
                             UUID.randomUUID(),
                             name = fullNameEditText.text.toString(),
+                            website = webEditText.text.toString(),
+                            projectFunded = projectsList,
                             amount = amountEditText.text.toString().toFloat()
                         ))
                     }.start()
