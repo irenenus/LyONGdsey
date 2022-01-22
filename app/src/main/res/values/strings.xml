@@ -11,4 +11,9 @@
     <string name="stakeholder_projects">Projects funded</string>
     <string name="stakeholder_amount">Amount</string>
     <string name="stakeholder_submit">Submit</string>
+
+    <!-- Error strings -->
+    <string name="stakeholder_field_required">Please fill this field as it´s required</string>
+    <string name="stakeholder_email_not_valid">Your email is not valid</string>
+    <string name="stakeholder_web_not_valid">Your website is not valid</string>
 </resources>
