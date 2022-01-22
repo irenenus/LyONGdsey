@@ -1,11 +1,12 @@
-package com.irene.lyongdsey
+package com.irene.lyongdsey.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.irene.lyongdsey.R
 
-class MainActivity : AppCompatActivity() {
+class DashboardActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_dashboard)
     }
 }

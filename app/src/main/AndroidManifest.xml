@@ -3,14 +3,14 @@
     package="com.irene.lyongdsey">
 
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LyONGdsey">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.DashboardActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,5 +19,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>
