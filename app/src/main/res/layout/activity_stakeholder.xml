@@ -146,8 +146,10 @@
                 android:hint="@string/stakeholder_projects"
                 app:boxStrokeColor="@color/purple_200"
                 app:errorIconDrawable="@null"
-                android:paddingVertical="12dp"
+                android:paddingTop="12dp"
                 style="@style/TextInputLayout.OutlineBox.CustomFont"
+                app:endIconMode="custom"
+                app:endIconDrawable="@drawable/ic_add"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -160,6 +162,17 @@
                     />
 
             </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/projectsTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:textSize="18sp"
+                android:fontFamily="@font/poppins"
+                android:background="@color/white"
+                android:visibility="gone"
+                android:layout_marginBottom="12dp"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/amountInputLayout"

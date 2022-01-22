@@ -16,4 +16,5 @@
     <string name="stakeholder_field_required">Please fill this field as it´s required</string>
     <string name="stakeholder_email_not_valid">Your email is not valid</string>
     <string name="stakeholder_web_not_valid">Your website is not valid</string>
+    <string name="stakeholder_fields_not_valid">Something went wrong, please, recheck all the fields</string>
 </resources>
