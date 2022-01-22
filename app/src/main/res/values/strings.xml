@@ -2,4 +2,13 @@
     <string name="app_name">LyONGdsey</string>
     <string name="button_stakeholders">Add \n Stakeholder</string>
     <string name="button_add_project">Add \n project</string>
+    <string name="stakeholder_title">Stakeholder form</string>
+    <string name="stakeholder_subtitle">Please, add all the fields</string>
+    <string name="stakeholder_full_name">Full name</string>
+    <string name="stakeholder_email">Email</string>
+    <string name="stakeholder_website">Website</string>
+    <string name="stakeholder_project_names">Project names</string>
+    <string name="stakeholder_projects">Projects funded</string>
+    <string name="stakeholder_amount">Amount</string>
+    <string name="stakeholder_submit">Submit</string>
 </resources>

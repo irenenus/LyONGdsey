@@ -10,4 +10,8 @@
     <color name="blue_soft">#91E6DC</color>
     <color name="transparent">#0091E6DC</color>
     <color name="black">#000000</color>
+    <color name="dark_grey">#5B5B5B</color>
+    <color name="mid_grey">#949494</color>
+    <color name="light_grey">#CECECE</color>
+    <color name="red_error">#DC0F0F</color>
 </resources>

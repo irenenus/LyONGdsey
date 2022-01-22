@@ -3,9 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/irene/AndroidStudioProjects/LyONGdsey/app/src/main/res/drawable-v24/ic_cancel.xml" value="0.18888888888888888" />
         <entry key="..\:/Users/irene/AndroidStudioProjects/LyONGdsey/app/src/main/res/drawable/gradient_dashboard_background.xml" value="0.18888888888888888" />
         <entry key="..\:/Users/irene/AndroidStudioProjects/LyONGdsey/app/src/main/res/drawable/rounded_button_shape.xml" value="0.18888888888888888" />
         <entry key="..\:/Users/irene/AndroidStudioProjects/LyONGdsey/app/src/main/res/layout/activity_dashboard.xml" value="0.22" />
+        <entry key="..\:/Users/irene/AndroidStudioProjects/LyONGdsey/app/src/main/res/layout/activity_stakeholder.xml" value="0.22" />
       </map>
     </option>
   </component>
