@@ -29,7 +29,6 @@ abstract class ONGDataBase : RoomDatabase() {
             if (INSTANCE == null) {
                 synchronized(ONGDataBase::class.java) {
                     if (INSTANCE == null) {
-                        context.applicationContext.deleteDatabase(dbName)
                         INSTANCE = Room.databaseBuilder(context.applicationContext,
                             ONGDataBase::class.java, dbName).fallbackToDestructiveMigration()
                             .build()
